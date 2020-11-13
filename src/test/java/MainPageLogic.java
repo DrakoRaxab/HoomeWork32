@@ -14,8 +14,8 @@ public class MainPageLogic {
         this.wait = wait;
     }
 
-    public MainPageLogic computersAndNotebookMenuClick() {
+    public ComputersAndNotebooksLogic computersAndNotebookMenuClick() {
         driver.findElement(computersAndNotebookMenu).click();
-        return this;
+        return new ComputersAndNotebooksLogic(driver, wait);
     }
 }

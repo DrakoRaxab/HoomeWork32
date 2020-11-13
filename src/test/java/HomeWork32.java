@@ -19,7 +19,7 @@ public class HomeWork32 {
 
     @BeforeMethod
     public void before() {
-        System.setProperty("webdriver.chrome.driver", "D:\\Java\\Hillel\\urok18\\driver\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "D:\\QA Automation\\Rozetka\\driver\\chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -35,24 +35,15 @@ public class HomeWork32 {
         new NotebooksLogic(driver, wait).buyButtonClick();
         new NotebooksLogic(driver, wait).basketClick();
         new NotebooksLogic(driver, wait).basketCounterText();
+        new NotebooksLogic(driver, wait).assertTestInNotebooksLogic();
+        new NotebooksLogic(driver, wait).assertCountInBasketLogic();
 
-        BasketLogic basketLogic = new BasketLogic(driver, wait);
-        NotebooksLogic notebooksLogic = new NotebooksLogic(driver, wait);
-
-//        String title = basketLogic.productInBasketText();
-//        System.out.println(title);
-
-        Assert.assertEquals(notebooksLogic.basketCounterText(), "1", "В корзине больше одного товара");
-//        System.out.println(notebooksLogic.basketCounterText());
-
-        Assert.assertEquals(notebooksLogic.firstProductInCatalogText(), basketLogic.productInBasketText(), "Товар в корзине отличается от товара из каталога");
-        System.out.println(notebooksLogic.firstProductInCatalogText() + " - " + basketLogic.productInBasketText());
 
     }
 
     @AfterMethod
     public void after() {
 
-        //driver.quit();
+        driver.quit();
     }
 }

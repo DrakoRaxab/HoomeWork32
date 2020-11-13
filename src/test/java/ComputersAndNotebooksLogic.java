@@ -15,7 +15,6 @@ public class ComputersAndNotebooksLogic {
     }
 
     public void notebookImgClick() {
-//        wait.until(ExpectedConditions.visibilityOfElementLocated(firstProduct));
         JavascriptExecutor jse = (JavascriptExecutor) driver;
         WebElement notebookImg = driver.findElement(By.xpath("//img[@alt='Ноутбуки']"));
         jse.executeScript("arguments[0].click();", notebookImg);
